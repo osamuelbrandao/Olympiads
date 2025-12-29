@@ -97,7 +97,7 @@
 \newcommand{\prodsym}{\prod_{\text{sym}}}
 
 \tcbset{
-	theorembox/.style={
+	theorem/.style={
 			enhanced,
 			enhanced jigsaw,
 			drop shadow,
@@ -116,7 +116,7 @@
 }
 
 \tcbset{
-	lemmabox/.style={
+	lemma/.style={
 			enhanced,
 			enhanced jigsaw,
 			drop shadow,
@@ -136,7 +136,7 @@
 }
 
 \tcbset{
-	examplebox/.style={
+	example/.style={
 			enhanced,
 			arc=1.4mm,
 			breakable,
@@ -154,7 +154,7 @@
 }
 
 \tcbset{
-	problembox/.style={
+	problem/.style={
 			enhanced,
 			enhanced jigsaw,
 			drop shadow,
@@ -172,7 +172,7 @@
 }
 
 \tcbset{
-	claimbox/.style={
+	claim/.style={
 			enhanced,
 			breakable,
 			colback=color8,
@@ -189,7 +189,7 @@
 }
 
 \tcbset{
-	observationbox/.style={
+	observation/.style={
 			enhanced,
 			breakable,
 			colback=color8,
@@ -205,16 +205,16 @@
 		}
 }
 
-\newtcbtheorem[auto counter, number within=section]{theorem}{Theorem}{theorembox}{theorem}
-\newtcbtheorem[use counter from=theorem]{definition}{Definition}{theorembox}{definition}
-\newtcbtheorem[use counter from=theorem]{lemma}{Lemma}{theorembox}{lemma}
+\newtcbtheorem[auto counter, number within=section]{theorem}{Theorem}{theorem}{theorem}
+\newtcbtheorem[use counter from=theorem]{definition}{Definition}{theorem}{definition}
+\newtcbtheorem[use counter from=theorem]{lemma}{Lemma}{theorem}{lemma}
 \newtcbtheorem[use counter from=theorem]{corollary}{Corollary}{theorembox}{corollary}
-\newtcbtheorem[use counter from=theorem]{examplebox}{Example}{examplebox}{example}
+\newtcbtheorem[use counter from=theorem]{example}{Example}{example}{example}
 
-\newtcolorbox{problem}{problembox, title=Problem Statement}
-\newtcolorbox{claim}{claimbox, title=Claim}
-\newtcolorbox{observation}{examplebox, title=Observation}
-\newtcolorbox{insight}{examplebox, title={\footnotesize \emoji{bulb}}  Insight}
+\newtcolorbox{problem}{problem, title=Problem Statement}
+\newtcolorbox{claim}{claim, title=Claim}
+\newtcolorbox{observation}{example, title=Observation}
+\newtcolorbox{insight}{example, title={\footnotesize \emoji{bulb}}  Insight}
 
 \crefname{section}{section}{sections}
 \Crefname{section}{Section}{Sections}
@@ -223,4 +223,4 @@
 \crefname{tcb@cnt@definition}{Definition}{Definitions}
 \crefname{tcb@cnt@lemma}{Lemma}{Lemmas}
 \crefname{tcb@cnt@corollary}{Corollary}{Corollaries}
-\crefname{tcb@cnt@example}{Example}{Examples}
+\crefname{example}{Example}{Examples}

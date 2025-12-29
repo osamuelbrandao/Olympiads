@@ -1,3 +1,92 @@
+\subsection{\textsf{Induction}}
+\subsubsection{Weak induction}
+Inductions are usually used when something must be proved for a large number of
+objects, usually for every number of objects.
+\begin{example}{}{}
+	Prove that $n^2+n$ is even for every positive integer $n$.
+\end{example}
+\textcolor{color2}{\textbf{Solution. }} It is clearly true, because $n^2+n=n(n+1)$. Moreover, of course $n$ or $n+1$ must be even.
+However, we can prove it using induction either as we can see in the step-by-step below.
+\begin{enumerate}
+	\item Base case. Suppose we wanna prove $P(n)$ is true for every $n$ real number. Therefore, the first step in induction
+	      is proving that $P(n_0)$ is true. This is called the base case.
+
+	      If we wanna prove $n^2+n$ is even, we need to show that $1^2+1=2$ is even first, which clearly is.
+	\item Inductive step. Now, we suppose that $P(k)$ is true when $n_0<k<k+1$. This is called the inductive hypotheses. And
+	      then, we prove that $P(k+1)$ is true using the hypotheses that $P(k)$ is true. If we manage to do this,
+	      every $P(n)$ is going to be true.
+\end{enumerate}
+\subsubsection{Multiple base cases}
+Now, say you want to prove the following using induction.
+\begin{example}{}{}
+	Suppose you have and unlimited supply of $5$ and $8$ cent stamps. Show you can use these to make any amount of postage greater than $27$ cents.
+\end{example}
+\textcolor{color2}{\textbf{Solution. }} The best way to solve this one is proving that $n=28,29,30,31,32$ can all be obtained using only out $5$ and $8$ cent stamps.
+\begin{itemize}
+	\item $28=5\cdot4 + 8\cdot1$
+	\item $29=5\cdot1 + 8\cdot3$
+	\item $30=5\cdot6 + 8\cdot0$
+	\item $31=5\cdot3 + 8\cdot2$
+	\item $32=5\cdot0+ 8\cdot4$
+\end{itemize}
+As we can see, instead of $1$ base case, we have $5$. Now, we must simply prove that $P(k+5)$ is true after supposing that
+$P(k)$ is true. Nevertheless, it clearly is, because we must simply add a $5$ cent stamp to make it true.
+
+You might have already noticed the generalization for this one. If you want to prove $P(n)$ is true, you must simply prove
+$P(k+m)$ is true after supposing $P(k)$ is true and making all the base cases, that are $P(n_0),\dots, P(m)$.
+\subsubsection{Strong Induction}
+The strong induction, differently from the weak induction, uses multiple inductive hypotheses. To be more specific,
+we assume $P(j)$ is true for every $j<n$ and try to prove that $P(n)$ is true based on our hypotheses.
+\begin{example}{}{}\label{exa:strong}
+	You and I are playing a game with raisins. We start with two non-empty piles of raisins
+	on the table, and take turns making moves. A move consists of eating all the raisins in one pile and
+	dividing the second into two non-empty (and not necessarily equal) piles. The game continues until
+	one of us can’t move; that player loses. Show that if one of the piles starts out with an even number
+	of raisins then the first player can win.
+\end{example}
+\textcolor{color2}{\textbf{Solution. }}
+Let $a$ and $b$ denote the current number of raisins in each pile on the table. Say
+\begin{itemize}
+	\item $(a,b)=(1,1)$. Then, it is impossible to divide any pile into two non-empty piles. Therefore, the current player to move loses.
+	\item $(a,b)=(2,1)$ or $(a,b)=(1,2)$. Then, it suffices to eat the $1$ raisin pile and divide the $2$ raisins pile. Therefore, the
+	      current player to move wins.
+\end{itemize}
+We proceed by strong induction on $a+b$. Let's suppose the following is true for every $a+b<c$:
+\begin{itemize}
+	\item $a$ and $b$ are both odd. Hence, the current player to move loses.
+	\item At least one of the piles has an even number of raisins. Hence, the current player to move wins.
+\end{itemize}
+Alright, so let's prove now that $a+b=c$ follows our hypotheses:
+\begin{itemize}
+	\item $a$ and $b$ are both odd. Hence, one of the piles will be divided into two piles of opposite parity, while the other one is eaten.
+	      Thus, according to our hypotheses, the next player will win, since there is at least one pile filled with an even number of raisins.
+	      Consequently, the current player loses.
+
+	\item At least one of the piles has an even number of raisins. Hence, the current player can divide the pile with an even number of raisins
+	      into a $1$ raisin pile and a $a-1$ or $b-1$ raisins pile (depending on which pile the current player ate). Therefore,
+	      both of the resulting piles are odd. According to our hypotheses, the current player wins, because the total number of raisins is either
+	      $a$ or $b$, and $a,b<a+b$.
+\end{itemize}
+Therefore, the first player has the winning strategy when at least one of the piles has an even number of raisins.
+\subsubsection{Weak induction vs. Strong induction}
+The biggest difference between those two, is that:
+\begin{itemize}
+	\item Weak induction.
+	      \begin{itemize}
+		      \item Base case: must prove that $P(0), \dots, P(m)$ is true. Usually, $m=0$. In this case,
+		            we must simply prove $P(0)$ is true.
+		      \item Inductive step: must assume $P(n)$ is true for every $0 \le n \le n+1$ in order to demonstrate that $P(n+1+m)$ is true.
+	      \end{itemize}
+	\item Strong induction.
+	      \begin{itemize}
+		      \item Base case: Base case: must prove that $P(0), \dots, P(m)$ is true. Usually, $m=0$. In this case,
+		            we must simply prove $P(0)$ is true.
+		      \item Inductive step: must assume $P(0), \dots, P(n-1)$ is true for every $0 \le n$ in order to demonstrate that $P(n)$ is true.
+	      \end{itemize}
+\end{itemize}
+
+\clearpage
+
 \subsection{\textsf{Problems}}
 
 \subsubsection{USAJMO 2019 P1}
