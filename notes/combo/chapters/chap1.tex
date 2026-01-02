@@ -85,6 +85,79 @@ The biggest difference between those two, is that:
 	      \end{itemize}
 \end{itemize}
 
+\subsubsection{Inverted induction}
+This name was actually created by me. The inverted induction ain't really inverted, it is just simply different.
+
+Suppose you want to prove that $P(n)$ is true for all $n\in \NN$.
+\begin{itemize}
+	\item Define a set $N$ containing all the $n$ that result in $P(n)$ false.
+	\item By the Well-Ordering Principle, there must be a least elemenet $k\in S$ if $S$ is non-empty. This one is often called the minimal criminal or the smallest counterexample.
+	\item Demonstrate by contradiction that $S$ must be empty.
+\end{itemize}
+Usually it is said that $n\in\NN$. However, we simply need $S$ to have a least number. Therefore, $S$ can't be $(0,1)$, for example, but can be
+$[0,1)$, even though it is not natural and not finite.
+
+To contradict the minimal criminal, we usually
+\begin{itemize}
+	\item show that every $n<k$ satisfies $P(n)$ and then show $P(k)$ is true either (basically like a strong induction).
+	\item show that the smallest counterexample isn't actually the smallest, because there is an even smaller counterexample.
+\end{itemize}
+
+\begin{example}{}{}
+	Prove $\sqrt{2}$ is irrational.
+\end{example}
+\textcolor{color2}{\textbf{Solution. }} For the sake of contradiction, say $\sqrt{2}$ is rational. Then there exists $p,q>0$ such that $\sqrt{2}=\frac{p}{q}$,
+with $q$ the smallest possible postive denominator.
+Hence,
+\[
+	\sqrt{2} = \frac{p}{q}\implies 2=\frac{p^2}{q^2} \iff 2q^2=p^2.
+\]
+Consequently, $p=2p'$, meaning that $p$ is even. Therefore
+\[
+	2q^2=4p'^2 \iff q^2=2p'^2.
+\]
+Consequently, $q=2q'$, meaning that $q$ is even.
+
+\[
+	\sqrt{2}=\frac{p}{q} \iff \sqrt{2}=\frac{2p'}{2q'} = \frac{p'}{q'}.
+\]
+Contradiction! We said that $q$ was the least denominator possible, but $q'<q$. Hence $q$ isn't the least.
+\begin{example}{}{}
+	Prove that every $n \geq 2$ has a prime factorization.
+\end{example}
+\textcolor{color2}{\textbf{Solution. }} By the sake of contradiction, say there exists a set $N$ containing every $n\ge 2$ that doesn't have a prime factorization.
+Hence, by the WOP, there is a least element $n'$ contained in $N$.
+
+If $n'$ were prime, it would have a prime factorization. Thus it isn't prime and $n'=ab$. Since $n'$ is the smallest number inside $N$, $a$ and $b$ must
+have a prime factorization. Contradiction! $n'$ has a prime factorization that is the product of the prime factorizations of $a$ and $b$.
+
+\subsubsection{Examples}
+\begin{example}{}{}
+	$P$ is true for all $n,m\ge1$. Prove
+	\[
+		\frac{m!}{0!} + \cdots + \frac{(m+n)!}{n!} = \frac{(m+n+1)!}{n!(m+1)}.
+	\]
+\end{example}
+\textcolor{color2}{\textbf{Solution. }}
+\begin{itemize}
+	\item Base case: $n=1$ results in
+	      \[
+		      \frac{m!}{0!} + \frac{(m+1)!}{1!} = \frac{(m+2)!}{m+1},
+	      \]
+	      which is clearly true.
+	\item Inductive step: Suppose $P(n)$ is true. Therefore
+	      \[
+		      P(n+1)= \frac{m!}{0!}+\cdots+\frac{(m+n+1)!}{(n+1)!}= \frac{(m+n+1)!}{(n+1)!} + \frac{(m+n+1)!}{n!(m+1)}
+		      = \frac{(m+n+2)!}{(n+1)!(m+1)}
+	      \]
+	      can easily be proved by expanding $\frac{(m+n+1)!}{(n+1)!} + \frac{(m+n+1)!}{n!(m+1)}$.
+\end{itemize}
+
+\begin{insight}
+	Inducting over $m$ is harder since using the fact that $P(m)$ is true isn't as easy as using the fact that $P(n)$ is true.
+	This kinda of situation often happens, when there are two or more possibilities to induct over, but one of them is easier.
+\end{insight}
+
 \clearpage
 
 \subsection{\textsf{Problems}}
