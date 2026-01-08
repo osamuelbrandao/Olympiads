@@ -1,5 +1,5 @@
 \documentclass[12pt]{article}
-\usepackage{../../sty/otis}
+\usepackage{../../sty/sols}
 
 \unit{\textsf{\textbf{Ineq Basic}}}
 
@@ -71,7 +71,7 @@ and observe that
 \[
 	\displaystyle \cyc 3ab+bc+ca+a^2+b^2+c^2= \cyc (a+b)^2 + (c+a)(c+b).
 \]
-Hence $\displaystyle \cyc \frac{(c+a)(c+b)}{(a+b)^2} \geq 6$, by the AM-GM inequality.
+Hence $\displaystyle \cyc \frac{(c+a)(c+b)}{(a+b)^2} \geq 3$, by the AM-GM inequality.
 
 \clearpage
 
@@ -116,6 +116,15 @@ true by the Muirhead's inequality.
 
 \subsection{Mandatory}
 
+\subsubsection{MOP 2011 R4.2}
+
+\begin{problem}
+For positive real numbers $a, b, c$ with $a + b + c = 3$ prove that
+\[\sum_{\text{cyc}}\sqrt{\frac{a^3+b^3}{a+b}}+9\sqrt[3]{abc}\le12.\]
+\end{problem}
+
+\clearpage
+
 \subsubsection{IMO 2012 P2}
 
 \begin{problem}
@@ -138,15 +147,18 @@ Let $x,y,z \ge 1$ be real numbers such that\[ \frac{1}{x^2-1} + \frac{1}{y^2-1} 
 \begin{problem}
 Let $n \geq 3$ be an integer. Let $t_1$, $t_2$, ..., $t_n$ be positive real numbers such that\[n^2 + 1 > \left( t_1 + t_2 + \cdots + t_n \right) \left( \frac{1}{t_1} + \frac{1}{t_2} + \cdots + \frac{1}{t_n} \right).\]Show that $t_i$, $t_j$, $t_k$ are side lengths of a triangle for all $i$, $j$, $k$ with $1 \leq i < j < k \leq n$.
 \end{problem}
-
-\clearpage
-
-\subsubsection{MOP 2011 R4.2}
-
-\begin{problem}
-For positive real numbers $a, b, c$ with $a + b + c = 3$ prove that
-\[\sum_{\text{cyc}}\sqrt{\frac{a^3+b^3}{a+b}}+9\sqrt[3]{abc}\le12.\]
-\end{problem}
+\textbf{\textcolor{color1}{Solution.}} \quad First, notice that
+\[
+	n^2+1>(t_1+\dots+t_n)\left(\frac{1}{t_1}+\dots+\frac{1}{t_n}\right) = n+ \cyc \left(\frac{t_i}{t_j}+\frac{t_j}{t_i}\right).
+\]
+At the same time, by the AM-GM inequality,
+\[
+	\frac{t_i}{t_j}+\frac{t_j}{t_i}\ge2 \quad \text{ and } \quad n+2\binom{n}{2}=n^2.
+\]
+Hence, we must prove that
+\[
+	\cyc \left(\frac{t_i}{t_j}+\frac{t_j}{t_i}-2\right)<1.
+\]
 
 \clearpage
 
@@ -222,18 +234,18 @@ When $x(\ge1),$ $y(\ge1),$ $z(\ge1)$ satisfy $\frac{1}{x}+\frac{1}{y}+\frac{1}{z
 $$\sqrt{x+y+z}\ge\sqrt{x-1}+\sqrt{y-1}+\sqrt{z-1}$$
 \end{problem}
 
-By the Cauchy-Schwarz inequality, 
+By the Cauchy-Schwarz inequality,
 \[
-  \left(\cyc x\right)\left(\cyc 1-\frac{1}{x}\right) \ge \left(\cyc \sqrt{x-1}\right)^2.
+	\left(\cyc x\right)\left(\cyc 1-\frac{1}{x}\right) \ge \left(\cyc \sqrt{x-1}\right)^2.
 \]
 However, since $\frac{1}{x}+\frac{1}{y}+\frac{1}{z}=2$,
 \[
-  \cyc \left(1-\frac{1}{x}\right) = 1.
+	\cyc \left(1-\frac{1}{x}\right) = 1.
 \]
 Therefore,
 \[
-  \cyc x \ge \left(\cyc \sqrt{x-1}\right)^2 \implies
-  \sqrt{x+y+z}\ge\sqrt{x-1}+\sqrt{y-1}+\sqrt{z-1}.
+	\cyc x \ge \left(\cyc \sqrt{x-1}\right)^2 \implies
+	\sqrt{x+y+z}\ge\sqrt{x-1}+\sqrt{y-1}+\sqrt{z-1}.
 \]
 
 \clearpage
@@ -366,25 +378,25 @@ Let $n\geq 2$ and $x_{1},x_{2},\ldots,x_{n}$ positive real numbers. Prove that
 
 By the AM-GM inequality,
 \[
-  \cyc \frac{1+x^2_i}{1+x_ix_{i+1}} \ge
-  n\sqrt[n]{\prodcyc \frac{1+x^2_i}{1+x_ix_{i+1}}}.
+	\cyc \frac{1+x^2_i}{1+x_ix_{i+1}} \ge
+	n\sqrt[n]{\prodcyc \frac{1+x^2_i}{1+x_ix_{i+1}}}.
 \]
 Therefore, it suffices to show that
 \[
-  \prodcyc \frac{1+x^2_i}{1+x_ix_{i+1}} \ge 
-  1 \iff \prodcyc (1+x^2_i) \ge \prodcyc (1+x_ix_{i+1}),
+	\prodcyc \frac{1+x^2_i}{1+x_ix_{i+1}} \ge
+	1 \iff \prodcyc (1+x^2_i) \ge \prodcyc (1+x_ix_{i+1}),
 \]
 which is clearly true, since
 \[
-  (1+x^2_i)(1+x^2_{i+1}) \ge (1+x_ix_{i+1})^2
+	(1+x^2_i)(1+x^2_{i+1}) \ge (1+x_ix_{i+1})^2
 \]
 by the Cauchy-Schwarz inequality. Hence,
 \[
-  \prodcyc (1+x^2_i) \ge \prodcyc (1+x_1x_{i+1}).
+	\prodcyc (1+x^2_i) \ge \prodcyc (1+x_1x_{i+1}).
 \]
 Thus,
 \[
-  \cyc \frac{1+x^2_i}{1+x_ix_{i+1}} \ge n.
+	\cyc \frac{1+x^2_i}{1+x_ix_{i+1}} \ge n.
 \]
 
 \clearpage
