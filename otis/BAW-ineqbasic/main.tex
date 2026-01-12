@@ -149,16 +149,32 @@ Let $n \geq 3$ be an integer. Let $t_1$, $t_2$, ..., $t_n$ be positive real numb
 \end{problem}
 \textbf{\textcolor{color1}{Solution.}} \quad First, notice that
 \[
-	n^2+1>(t_1+\dots+t_n)\left(\frac{1}{t_1}+\dots+\frac{1}{t_n}\right) = n+ \cyc \left(\frac{t_i}{t_j}+\frac{t_j}{t_i}\right).
+	n^2+1>(t_1+\dots+t_n)\left(\frac{1}{t_1}+\dots+\frac{1}{t_n}\right) = n+ \cyc \left(\frac{t_r}{t_s}+\frac{t_s}{t_r}\right)
 \]
-At the same time, by the AM-GM inequality,
+for all $1\le r < s \le n$. At the same time, by the AM-GM inequality,
 \[
-	\frac{t_i}{t_j}+\frac{t_j}{t_i}\ge2 \quad \text{ and } \quad n+2\binom{n}{2}=n^2.
+	\frac{t_r}{t_s}+\frac{t_s}{t_r}\ge2 \quad \text{ and } \quad n+2\binom{n}{2}=n^2.
 \]
-Hence, we must prove that
+Hence,
 \[
-	\cyc \left(\frac{t_i}{t_j}+\frac{t_j}{t_i}-2\right)<1.
+	n+ 2\left(\binom{n}{2}-3\right) + \left(\frac{t_i}{t_j}+\frac{t_j}{t_i}\right) + \left(\frac{t_j}{t_k}+\frac{t_k}{t_j}\right) + \left(\frac{t_k}{t_i}+\frac{t_i}{t_k}\right) \ge n^2.
 \]
+Consequently,
+\[
+	\left(\frac{t_i}{t_j}+\frac{t_j}{t_i}\right) + \left(\frac{t_j}{t_k}+\frac{t_k}{t_j}\right) + \left(\frac{t_k}{t_i}+\frac{t_i}{t_k}\right)
+	< 7 \iff \left(\frac{t_j}{t_k}+\frac{t_k}{t_j}\right) + \left(\frac{t_k}{t_i}+\frac{t_i}{t_k}\right) = \frac{t_i+t_j}{t_k}+t_k\left(\frac{1}{t_j}+\frac{1}{t_i}\right) < 5
+\]
+by the AM-GM inequality. Moreover, by the Cauchy-Schwarz inequality,
+\[
+	\left(\frac{1}{t_j}+\frac{1}{t_i}\right)\left(t_j+t_i\right) \ge 4 \iff \frac{1}{t_j}+\frac{1}{t_i} \ge \frac{4}{t_j+t_i}.
+\]
+Thus,
+\[
+	\frac{t_i+t_j}{t_k}+\frac{4t_k}{t_j+t_i} < 5 \iff \left(\frac{t_i+t_j}{t_k}\right)^2-5\left(\frac{t_i+t_j}{t_k}\right)+4 = \left(\frac{t_i+t_j}{t_k}-1\right)\left(\frac{t_i+t_j}{t_k}-4\right) < 0,
+\]
+which occurs if and only if $1<\frac{t_j+t_i}{t_k}<4$. However, if $\frac{t_j+t_i}{t_k}>1$, $t_k<t_j+t_i$.
+
+Therefore, $t_i$, $t_j$, $t_k$ are side lengths of a triangle.
 
 \clearpage
 
