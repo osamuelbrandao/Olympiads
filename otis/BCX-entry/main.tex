@@ -93,6 +93,14 @@ pair foot(pair P, pair A, pair B) { return foot(triangle(A,B,P).VC); }
 pair centroid(pair A, pair B, pair C) { return (A+B+C)/3; }
 \end{asydef}
 
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+
+% Macros para floor e ceiling
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\Z}{\mathbb{Z}}
+
 \newcommand{\goals}[2]{\bgroup
 \sffamily\small \emph{Instructions}: Solve \clubg{#1}.
 If you have time, solve \clubg{#2}.\egroup\par}
@@ -562,6 +570,18 @@ such that $a < b < c$ and $c+2a > 3b$.
 \end{problem} \printpuid{21SLA1}
 
 %% Type your solution to Shortlist 2021 A1 (\href{https://otis.evanchen.cc/arch/21SLA1/}{21SLA1}) here ...
+\[
+	c+2a>3b \iff \frac{c-b}{2}>b-a.
+\]
+By the sake of contradiction, say the subset $A'=\{l_0,l_1,\cdots,l_{4n+1}\}$ of $\{0,1,2,\dots,5^n\}$, where $l_0<l_1<\cdots<l_{4n+1}$, doesn't satisfy the statement. Hence, it is imposisble to find $\frac{c-b}{2}> b-a$ in $A'$.
+
+Thus,
+\[
+	A'=\{l_{4n+1},l_{4n+1}-m,l_{4n+1}-\lceil \frac{3^1m}{2^1} \rceil,l_{4n+1}- \lceil \frac{3^2m}{2^2} \rceil, \dots,l_{4n+1}- \lceil \frac{3^{4n}m}{2^{4n}} \rceil\} \quad \forall m \in \ZZ^+.
+\]
+Therefore, $l_{4n+1} \ge \lceil \frac{3^{4n}m}{2^{4n}} \rceil = \lceil \frac{81^{n}m}{16^{n}} \rceil \iff 16^nl_{4n+1} \ge 81^nm$. Contradiction! $l_{4n+1} \le 5^n$.
+
+Consequently, there exist $a,b,c \in A$ such that $a<b<c$ and $c+2a>3b$.
 
 %% --------------------------------------------------
 
@@ -719,4 +739,5 @@ What's the minimum number of tiles he needs to rotate so that this is always pos
 
 %% --------------------------------------------------
 
+$\lceil \frac{\lceil \frac{\lceil \frac{m}{2} \rceil}{2} \rceil}{2} \rceil=\lceil \frac{m}{2} \rceil$
 \end{document}

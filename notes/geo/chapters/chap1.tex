@@ -10,17 +10,21 @@
 \begin{lemma}{Iran Lemma}{}
 	The incircle of $\triangle{ABC}$ is tangent to $BC, CA, AB$ at $D, E, F$, respectively. Let $M$ and $N$ be the midpoints of $BC$ and $AC$, respectively. Ray $BI$ meets line $EF$ at $K$. Show that $BK \perp CK$. Then show $K$ lies on line $MN$.
 \end{lemma}
-\begin{centering}
+\begin{figure}[h]
+	\centering
 	\includegraphics[width=0.5\textwidth]{./img/lemmas/iranlemma}
-\end{centering}
+\end{figure}
 
-\textbf{\textcolor{color2}{First solution.}}
+\textbf{\textcolor{color2}{Solution.}}
 \begin{claim}
 	$BK \perp CK$
 \end{claim}
 
 \begin{proof}
-
+	Since $F$ and $D$ are reflected over $BI$, the following is true.
+	\[
+		\measuredangle KDC = \measuredangle BDK = \measuredangle KFB = \measuredangle EFA = \measuredangle AEF = \measuredangle CEK. \qedhere
+	\]
 \end{proof}
 
 \begin{claim}
@@ -28,24 +32,8 @@
 \end{claim}
 
 \begin{proof}
-	It suffices to prove that $DIEKC$ is cylic
-\end{proof}
-
-\textbf{\textcolor{color2}{Second solution.}}
-\begin{claim}
-	$BK \perp CK$
-\end{claim}
-
-\begin{proof}
-
-\end{proof}
-
-\begin{claim}
-	$K$ lies on line $MN$.
-\end{claim}
-
-\begin{proof}
-
+	Since $M$ is the circumcenter of $(BKC)$, $\measuredangle CMK = 2 \measuredangle CBK = \measuredangle CBA$. Hence,
+	$KM \parallel AB$. However, $MN \parallel AB$. Thus, $N \in KM$.
 \end{proof}
 
 \clearpage
