@@ -103,7 +103,203 @@ Hence, we must prove that
 
 \clearpage
 
+
 \subsection{\textsf{Problems}}
+\subsubsection{USAMO 2011 P1}
+\begin{problem}
+Let $a, b, c$ be positive real numbers such that $a^2+b^2+c^2+(a+b+c)^2\leq4$. Prove that
+\[\frac{ab+1}{(a+b)^2}+\frac{bc+1}{(b+c)^2}+\frac{ca+1}{(c+a)^2}\geq 3.\]
+\end{problem}
+
+The key is to correctly homogenize the inequality as shown below
+
+\[
+	\cyc \frac{2ab+2}{(a+b)^2} \geq \cyc \frac{2ab+ab+bc+ca+a^2+b^2+c^2}{(a+b)^2}
+\]
+and observe that
+\[
+	\displaystyle \cyc 3ab+bc+ca+a^2+b^2+c^2= \cyc (a+b)^2 + (c+a)(c+b).
+\]
+Hence $\displaystyle \cyc \frac{(c+a)(c+b)}{(a+b)^2} \geq 3$, by the AM-GM inequality.
+
+\clearpage
+
+\subsubsection{IMO 2001 P2}
+\begin{problem}
+Prove that for all positive real numbers $a,b,c$,\[ \frac{a}{\sqrt{a^2 + 8bc}} + \frac{b}
+	{\sqrt{b^2 + 8ca}} + \frac{c}{\sqrt{c^2 + 8ab}} \geq 1.  \]
+\end{problem}
+
+By Hölder,
+\[
+	\left(\cyc \frac{a}{\sqrt{a^2+8bc}}\right)\left(\cyc a \sqrt{a^2+8bc}\right) \geq (a+b+c)^2.
+\]
+Hence, is it enough to prove that
+\[
+	\displaystyle (a+b+c)^2 \geq \cyc a \sqrt{a^2+8bc} \iff 2(a^2b^2 +b^2c^2 + c^2a^2) \geq 2(a^2bc + ab^2c + abc^2),
+\]
+which is clearly true by the Muirhead's inequality.
+\clearpage
+\subsubsection{All Russian Olympiad 2018 Grade 11 P2}
+\begin{problem}
+Let $n\geq 2$ and $x_{1},x_{2},\ldots,x_{n}$ positive real numbers. Prove that
+\[
+	\frac{1+x_{1}^2}{1+x_{1}x_{2}}+\frac{1+x_{2}^2}{1+x_{2}x_{3}}+\cdots+\frac{1+x_{n}^2}{1+x_{n}x_{1}}\geq n.
+\]
+\end{problem}
+
+By the AM-GM inequality,
+\[
+	\cyc \frac{1+x^2_i}{1+x_ix_{i+1}} \ge
+	n\sqrt[n]{\prodcyc \frac{1+x^2_i}{1+x_ix_{i+1}}}.
+\]
+Therefore, it suffices to show that
+\[
+	\prodcyc \frac{1+x^2_i}{1+x_ix_{i+1}} \ge
+	1 \iff \prodcyc (1+x^2_i) \ge \prodcyc (1+x_ix_{i+1}),
+\]
+which is clearly true, since
+\[
+	(1+x^2_i)(1+x^2_{i+1}) \ge (1+x_ix_{i+1})^2
+\]
+by the Cauchy-Schwarz inequality. Hence,
+\[
+	\prodcyc (1+x^2_i) \ge \prodcyc (1+x_1x_{i+1}).
+\]
+Thus,
+\[
+	\cyc \frac{1+x^2_i}{1+x_ix_{i+1}} \ge n.
+\]
+
+\clearpage
+
+\subsubsection{IMO 2000 P2}
+\begin{problem}
+Let $ a, b, c$ be positive real numbers so that $ abc = 1$. Prove that
+\[
+	\left( a - 1 + \frac 1b \right) \left( b - 1 + \frac 1c \right) \left( c - 1 + \frac 1a \right) \leq 1.
+\]
+\end{problem}
+
+\textbf{\textcolor{color2}{First solution}} Since $abc=1$, let $a=\frac{x}{y}$, $b=\frac{y}{z}$ and $c=\frac{z}{x}$. Therefore, it suffices to prove that
+\[
+	\prodcyc \left(\frac{x}{y}-1+\frac{z}{y}\right) = \prodcyc \left(\frac{x-y+z}{y}\right) \le 1 \iff
+	\prodcyc \left(x-y+z\right) \le xyz.
+\]
+Let $u=x-y+z$,$v=y-z+x$ and $w=z-x+y$. Hence, it is enough to show that
+\[
+	uvw \le \frac{(u+v)(v+w)(w+u)}{8},
+\]
+which is true by AM-GM. Thus,
+\[
+	\prodcyc \left( a - 1 + \frac 1b \right) \le 1.
+\]
+
+\textbf{\textcolor{color2}{Second solution}} Since $abc=1$, let $a=\frac{x}{y}$, $b=\frac{y}{z}$ and $c=\frac{z}{x}$. Therefore, it suffices to prove that
+\[
+	\prodcyc \left(\frac{x}{y}-1+\frac{z}{y}\right) = \prodcyc \left(\frac{x-y+z}{y}\right) \le 1 \iff
+	\prodcyc \left(x-y+z\right) \le xyz.
+\]
+Now, notice that
+\[
+	\prodcyc \left(x-y+z\right) = \sym x^2y -2xyz -x^3-y^3-z^3.
+\]
+Hence, it is enough to show that
+\[
+	\sym x^2y -x^3-y^3-z^3 \le 3xyz,
+\]
+which is true by the Schur's inequality. Thus,
+\[
+	\prodcyc \left( a - 1 + \frac 1b \right) \le 1.
+\]
+
+\begin{insight}
+	$a=\frac{x}{y}$, $b=\frac{y}{z}$ and $c=\frac{z}{x}$ is the best possible strategy when $abc=1$, always remember that.
+
+	Both the Schur's and the AM-GM methods didn't come to my mind, even though they were really easy. I feel that the
+	Schur's method didn't come to my mind only because I was lazy, because it was so easy. However, the AM-GM method was
+	harder. I have been noticing a pattern that follows like this: an equality must obligatorily be true in order for the
+	question to be true. Hence, if it easy, basically every ineq you know should be tested, just because those inequalities
+	seems to be easy.
+\end{insight}
+
+\clearpage
+
+\subsubsection{Shortlist 1998 A3}
+
+\begin{problem}
+Let $x,y$ and $z$ be positive real numbers such that $xyz=1$. Prove that
+\[
+	\frac{x^{3}}{(1 + y)(1 + z)}+\frac{y^{3}}{(1 + z)(1 + x)}+\frac{z^{3}}{(1 + x)(1 + y)}
+	\geq \frac{3}{4}.
+\]
+\end{problem}
+
+\textcolor{color1}{\textbf{First solution}} By Cauchy-Schwarz,
+
+\begin{align*}
+	\left(\cyc \frac{x^3}{(1+y)(1+z)}\right)\left(\cyc (1+y)(1+z)\right) & \geq (x^{\frac{3}{2}}
+	+ y^{\frac{3}{2}} + z^{\frac{3}{2}})^2                                                       \\ & = x^3+y^3+z^3+2((xy)^{\frac{3}{2}}+(yz)^{\frac{3}{2}}+(zx)^{\frac{3}{2}}).
+\end{align*}
+Therefore, it suffices to prove that
+\begin{align*}
+	 & x^3+y^3+z^3+2((xy)^{\frac{3}{2}}+(yz)^{\frac{3}{2}}+(zx)^{\frac{3}{2}}) \geq \frac{3}{4}\left(3+2(x+y+z)+xy+yz+zx \right) \iff            \\
+	 & 2 \sym x^3 +4 \sym (xy)^{\frac{3}{2}} \geq \frac{3}{2} \sym xyz + 3 \sym(x^5y^2z^2)^{\frac{1}{3}}+\frac{3}{2} \cyc(x^4y^4z)^{\frac{1}{3}}
+\end{align*}
+
+\textcolor{color1}{\textbf{Second solution}} By Titu's lemma,
+
+\[
+	\cyc \frac{x^4}{x(1+y)(1+z)} \geq \frac{(x^2+y^2+z^2)^2}{3xyz+2(xy+yz+za)+x+y+z} \geq \frac{(x^2+y^2+z^2)^2}{4(x^2+y^2+z^2)} \geq \frac{3}{4}
+\]
+\clearpage
+\subsubsection{USAJMO 2012 P3}
+
+\begin{problem}
+Let $a,b,c$ be positive real numbers. Prove that
+\[
+	\frac{a^3+3b^3}{5a+b}+\frac{b^3+3c^3}{5b+c}+\frac{c^3+3a^3}{5c+a} \geq \frac{2}{3}(a^2+b^2+c^2)
+\]
+\end{problem}
+
+By Titu's lemma we have
+\[
+	\cyc \frac{a^4}{a(5a+b)} \geq \frac{a^2+b^2+c^2}{6} = x \quad \text{and} \quad
+	3 \cyc \frac{b^4}{b(5a+b)} \geq \frac{a^2+b^2+c^2}{2} = y
+\]
+since $\displaystyle \cyc 5ab+b^2 \leq \cyc 5a^2+ab \leq 6(a^2+b^2+c^2)$. Hence $\displaystyle x+y=\frac{2}{3}(a^2+b^2+c^2)$.
+\clearpage
+
+\subsubsection{IMO 1995 P2}
+
+\begin{problem}
+Let $ a$, $ b$, $ c$ be positive real numbers such that $ abc = 1$. Prove that
+\[
+	\frac {1}{a^{3}\left(b + c\right)} + \frac {1}{b^{3}\left(c + a\right)} + \frac {1}{c^{3}\left(a + b\right)}\geq \frac {3}{2}.
+\]
+\end{problem}
+
+\textcolor{color1}{\textbf{First solution}} By Cauchy-Schwarz,
+\[
+	\left(\cyc \frac{1}{a^3(b+c)}\right)\left(\cyc a(b+c)\right) \geq
+	\left(\frac{1}{a} + \frac{1}{b} + \frac{1}{c}\right)^2 = (ab+bc+ca)^2.
+\]
+Hence, it is enough to prove that
+\[
+	(ab+bc+ca)^2 \geq \frac{3}{2}\left(\cyc a(b+c)\right) \iff (ab+bc+ca)^2 \geq 3(ab+bc+ca)(abc)^{\frac{2}{3}},
+\]
+which is true by AM-GM.
+
+\textcolor{color1}{\textbf{Second solution}} By Cauchy-Schwarz,
+\[
+	\left(\cyc \frac{1}{a^3(b+c)}\right)\left(\cyc a(b+c)\right) \geq
+	\left(\frac{1}{a} + \frac{1}{b} + \frac{1}{c}\right)^2 = (ab+bc+ca)^2,
+\]
+and by Titu's lemma,
+\[
+	\cyc \frac{(\frac{1}{a})^2}{a(b+c)} \geq \frac{ab+bc+ca}{2} \ge \frac{3(abc)^{\frac{2}{3}}}{2} = \frac{3}{2}
+\]
+\clearpage
 
 \subsubsection{IMO Shortlist 2004 A5}
 \begin{problem}
@@ -162,55 +358,8 @@ Consequently,
 \begin{align*}
 	\frac{1}{abc} \ge \cyc \sqrt[3]{\frac{1}{a} +6b}.
 \end{align*}
-\subsubsection{IMO 2000 P2}
-\begin{problem}
-Let $ a, b, c$ be positive real numbers so that $ abc = 1$. Prove that
-\[
-	\left( a - 1 + \frac 1b \right) \left( b - 1 + \frac 1c \right) \left( c - 1 + \frac 1a \right) \leq 1.
-\]
-\end{problem}
 
-\textbf{\textcolor{color2}{First solution}} Since $abc=1$, let $a=\frac{x}{y}$, $b=\frac{y}{z}$ and $c=\frac{z}{x}$. Therefore, it suffices to prove that
-\[
-	\prodcyc \left(\frac{x}{y}-1+\frac{z}{y}\right) = \prodcyc \left(\frac{x-y+z}{y}\right) \le 1 \iff
-	\prodcyc \left(x-y+z\right) \le xyz.
-\]
-Let $u=x-y+z$,$v=y-z+x$ and $w=z-x+y$. Hence, it is enough to show that
-\[
-	uvw \le \frac{(u+v)(v+w)(w+u)}{8},
-\]
-which is true by AM-GM. Thus,
-\[
-	\prodcyc \left( a - 1 + \frac 1b \right) \le 1.
-\]
-
-\textbf{\textcolor{color2}{Second solution}} Since $abc=1$, let $a=\frac{x}{y}$, $b=\frac{y}{z}$ and $c=\frac{z}{x}$. Therefore, it suffices to prove that
-\[
-	\prodcyc \left(\frac{x}{y}-1+\frac{z}{y}\right) = \prodcyc \left(\frac{x-y+z}{y}\right) \le 1 \iff
-	\prodcyc \left(x-y+z\right) \le xyz.
-\]
-Now, notice that
-\[
-	\prodcyc \left(x-y+z\right) = \sym x^2y -2xyz -x^3-y^3-z^3.
-\]
-Hence, it is enough to show that
-\[
-	\sym x^2y -x^3-y^3-z^3 \le 3xyz,
-\]
-which is true by the Schur's inequality. Thus,
-\[
-	\prodcyc \left( a - 1 + \frac 1b \right) \le 1.
-\]
-
-\begin{insight}
-	$a=\frac{x}{y}$, $b=\frac{y}{z}$ and $c=\frac{z}{x}$ is the best possible strategy when $abc=1$, always remember that.
-
-	Both the Schur's and the AM-GM methods didn't come to my mind, even though they were really easy. I feel that the
-	Schur's method didn't come to my mind only because I was lazy, because it was so easy. However, the AM-GM method was
-	harder. I have been noticing a pattern that follows like this: an equality must obligatorily be true in order for the
-	question to be true. Hence, if it easy, basically every ineq you know should be tested, just because those inequalities
-	seems to be easy.
-\end{insight}
+\clearpage
 
 \subsubsection{Iran 1998 P5}
 
@@ -288,6 +437,62 @@ By the Cauchy-Schwarz inequality,
 
 Therefore,
 \[ \frac{1}{x+1} + \frac{1}{y+1} + \frac{1}{z+1} \le 1. \]
+
+\clearpage
+
+\subsubsection{IMO 2012 P2}
+
+\begin{problem}
+Let $n\ge 3$ be an integer, and let $a_2,a_3,\ldots ,a_n$ be positive real numbers such that $a_{2}a_{3}\cdots a_{n}=1$. Prove that
+\[(1 + a_2)^2 (1 + a_3)^3 \dotsm (1 + a_n)^n > n^n.\]
+\end{problem}
+
+Notice
+\[
+	a_k+1=a_k+\frac{1}{k-1}+\cdots+\frac{1}{k-1} \ge k\sqrt[k]{\frac{a_k}{(k-1)^{k-1}}} \implies (1+a_k)^k = \frac{k^k}{(k-1)^{k-1}}a_k \quad \forall k \ge 2
+\]
+by AM-GM. Hence,
+\[
+	(1 + a_2)^2 (1 + a_3)^3 \dotsm (1 + a_n)^n \ge \prod_{k=2}^{n} \frac{k^k}{(k-1)^{k-1}} \cdot a_2a_3\cdots a_n =
+	n^n.
+\]
+Equality holds if and only if $a_k=\frac{1}{k-1}$, which is impossible for $n \ge 3$.
+Thus,
+\[
+	(1 + a_2)^2 (1 + a_3)^3 \dotsm (1 + a_n)^n > n^n.
+\]
+
+\begin{insight}
+	$a_k+1=a_k+(k-1)\frac{1}{k-1}$.
+\end{insight}
+
+\clearpage
+
+\subsubsection{MOP 2011 R4.2}
+
+\begin{problem}
+For positive real numbers $a, b, c$ with $a + b + c = 3$ prove that
+\[\sum_{\text{cyc}}\sqrt{\frac{a^3+b^3}{a+b}}+9\sqrt[3]{abc}\le12.\]
+\end{problem}
+
+\textbf{\textcolor{color1}{First solution}} By AM-GM,
+\[
+	9\sqrt[3]{abc} \ge 3(\sqrt{ab}+\sqrt{bc}+\sqrt{ca}),
+\]
+and by QM-AM,
+\[
+	\cyc \left(\sqrt{\frac{a^3+b^3}{a+b}}+3\sqrt{ab}\right) \le \cyc 4\sqrt{\frac{a^2-ab+b^2+3ab}{4}} = \cyc 2(a+b) = 12.
+\]
+Hence,
+\[\sum_{\text{cyc}}\sqrt{\frac{a^3+b^3}{a+b}}+9\sqrt[3]{abc}\le12.\]
+
+\textbf{\textcolor{color1}{Second solution}} By Cauchy-Schwarz,
+\begin{align*}
+	 & \left(\cyc(\sqrt{a^2-ab+b^2} + 3\sqrt{ab})\right)^2 &  & \le \cyc(a^2-ab+b^2 + 3ab)(1+3) \implies \\
+	 & \cyc(\sqrt{a^2-ab+b^2} + 3\sqrt{ab})                &  & \le 12.
+\end{align*}
+However, $3(\sqrt{ab}+\sqrt{bc}+\sqrt{ca}) \le 9\sqrt[3]{abc}$. Hence,
+\[\sum_{\text{cyc}}\sqrt{\frac{a^3+b^3}{a+b}}+9\sqrt[3]{abc}\le12.\]
 
 \clearpage
 

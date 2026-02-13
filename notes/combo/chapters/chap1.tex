@@ -311,12 +311,147 @@ possible sum to
 
 \clearpage
 
-\subsubsection{Shortlist 2012 C1}
+\subsubsection{Shortlist 2021 A1}
 
-\begin{problem}
-Several positive integers are written in a row. Iteratively, Alice chooses two adjacent numbers $x$ and $y$ such that $x>y$ and $x$ is to the left of $y$, and replaces the pair $(x,y)$ by either $(y+1,x)$ or $(x-1,x)$. Prove that she can perform only finitely many such iterations.
+\begin{problem}[\href{https://aops.com/community/p25627665}{Shortlist 2021 A1}, $2\clubsuit$]
+Let $n \ge 1$ be an integer,
+and let $A$ be a subset of $\{0,1,2,\dots,5^n\}$.
+If $|A|=4n+2$, prove that there exist $a,b,c \in A$
+such that $a < b < c$ and $c+2a > 3b$.
 \end{problem}
-\textcolor{color2}{\textbf{Solution. }}
+
+%% Type your solution to Shortlist 2021 A1 (\href{https://otis.evanchen.cc/arch/21SLA1/}{21SLA1}) here ...
+By the sake of contradiction, say there exist a subset $A'=\{m_0,m_1,\dots,m_{4n+1}\}$ of $\{0,1,\dots,5^n\}$, where $m_0<m_1<\dots<m_{4n+1}$,
+that doesn't satisfy the statement. Hence,
+\[
+	m_{4n+1}+2m_i \le 3m_{i+1} \iff \frac{3}{2}(m_{4n+1}-m_{i+1}) \le m_{4n+1}-m_i
+\]
+when $i=0,1,\dots,4n-1$.
+\begin{claim}
+	$\displaystyle \left(\frac{3}{2}\right)^l (m_{4n+1}-m_{l+i}) \le m_{4n+1}-m_i$ when $l=0,1,\dots, 4n+i$.
+\end{claim}
+\begin{proof}
+	First, notice that
+	\[
+		\left(\frac{3}{2}\right)^0 (m_{4n+1}-m_i) \le m_{4n+1}-m_i.
+	\]
+	Moreover, by weak induction over $l$, suppose
+	\[
+		\left(\frac{3}{2}\right)^{l-1} (m_{4n+1}-m_{i+l-1}) \le \frac{3}{2}(m_{4n+1}-m_{i+1}) \le m_{4n+1}-m_i
+	\]
+	is true. Hence,
+	\[
+		\left(\frac{3}{2}\right)^{l-1} (m_{4n+1}-m_{l-1+i}) \ge \left(\frac{3}{2}\right)^l (m_{4n+1}-m_{l+i}).
+	\]
+	Consequently,
+	\[
+		\left(\frac{3}{2}\right)^l (m_{4n+1}-m_{l+i}) \le m_{4n+1}-m_i. \qedhere
+	\]
+\end{proof}
+
+In particular,
+\[
+	\left(\frac{3}{2}\right)^{4n-i}(m_{4n+1}-m_{4n}) \le m_{4n+1}-m_i.
+\]
+Thus, when $i=0$,
+\[
+	\left(\frac{81}{16}\right)^n(m_{4n+1}-m_{4n}) \le m_{4n+1}-m_0 \le 5^n
+\]
+Contradiction! $\left(\frac{81}{16}\right)^n > 5^n$ and $m_{4n+1}-m_{4n} \ge 1$.
+
+\begin{insight}
+	\begin{itemize}
+		\item Sempre que for provar alguma iteração, use indução.
+		\item Formularização é essencial. Pense mais em como formularizar.
+	\end{itemize}
+\end{insight}
 
 \clearpage
 
+\subsubsection{INMO 2020 P3}
+
+\begin{problem}[INMO 2020/3, $3\clubsuit$]
+Consider a nonempty set $S \subseteq \{0, 1, \dots, 9\}$.
+It turns out that every sufficiently large positive integer
+can be written as the sum of two positive integers $a$ and $b$,
+where both $a$ and $b$ have decimal digits only in $S$.
+How small can $|S|$ be?
+\end{problem}
+
+%% Type your solution to INMO 2020/3 (\href{https://otis.evanchen.cc/arch/20INMO3/}{20INMO3}) here ...
+\begin{claim}
+	$|S| \ge 5$.
+\end{claim}
+\begin{proof}
+	AFTSOF $|S| \le 4$. Say $|S|=4$ and $S=\{p,q,r,s\}$ (making it smaller won't affect our argument).
+	As defined by the statement, $a$ and $b$ have their decimal digits in $S$,
+	including the ones places, that we define as $a'$ and $b'$, respectively. $a'+b' \pmod{10}$
+	can result, in total, in $\binom{4}{2}+4$ different numbers: $\{0,1,2, \dots,9\}$.
+
+	Notice that $p+p,q+q,r+r,s+s \pmod{10}$ are all different even numbers, resting only one more even inside
+	$\{0,1,2, \dots,9\}$: WLOG, say it is $p+q$. Therefore, $p,q$ have the same parity, but $p,s$ and $p,r$ must
+	have different parity, since we don't want more even numbers. Contradiction! In this case, $r,s$
+	have the same parity, resulting in $6$ even numbers inside $\{0,1,2, \dots,9\}$, even though there are only $5$.
+\end{proof}
+
+Now, notice the following:
+\begin{itemize}
+	\item $0=0+0$;
+	\item $1=1+0$;
+	\item $2=1+1$;
+	\item $3=3+0$;
+	\item $4=3+1$;
+	\item $5=4+1$;
+	\item $6=3+3$;
+	\item $7=4+3$;
+	\item $8=4+4$;
+	\item $9=6+3$.
+\end{itemize}
+Every number from $\{0,1,2,\dots,9\}$ is a result of the summation of $x,y\in S=\{0,1,3,4,6\}$.
+Therefore, every number $n=a+b$, where both $a,b$ have their decimal digits $x,y\in S$.
+For example: $57241$ has the following decimal digits: $\{5,7,2,4,1\}$, where
+\[
+	5=4+1, 7=4+3, 2=1+1, 4=3+1, 1=0+1.
+\]
+Hence, $57241=44130+13111$.
+
+\begin{insight}
+	Teste sua solução.
+\end{insight}
+
+\clearpage
+
+\begin{problem}[Soviet Union 1978, $3\clubsuit$]
+A token is placed on an $n\times n$ chessboard.
+Each of two players moves it in turn to an orthogonally neighbouring cell.
+A player loses if they move the token to a cell that was already visited
+(this includes the cell the token started with).
+\begin{enumerate}
+	\item If the token starts on a corner cell, for each $n$, who wins?
+	\item If the token starts adjacent to a corner cell, for each $n$, who wins?
+\end{enumerate}
+\end{problem}
+
+%% Type your solution to Soviet Union 1978 (\href{https://otis.evanchen.cc/arch/ZC1AD077/}{ZC1AD077}) here ...
+\begin{enumerate}
+	Call $a$ and $b$ the two players, where $a$ moves first.
+	\item
+	      \begin{itemize}
+		      \item $n$ is an odd number. Pair every cell (except the cell where the token was initially at) with exactly one orthogonally neighbouring cell, making $2\times1$ rectangles.
+		            $a$ will always move the token to a rectangle not visited by it yet, and $b$ will always be able to move the token to the other cell of this rectangle.
+		            Therefore, $b$ will always be able to make a move, having this way the winning strategy.
+		      \item $n$ is an even number. Pair every cell again as described above (without exceptions this time). However, now, the inverse is going to happen, since $b$ will always be the first to move the token to a
+		            rectangle not visited by it before. Hence, $a$ will always be able to make a move, having this way the winning strategy.
+	      \end{itemize}
+	\item
+	      \begin{itemize}
+		      \item $n$ is an odd number. Pair every cell as described above (except the nearby corner of the initial token location).
+		            Thus, we have a similar situation to the one where $n$ is an even number and the token is initially at the corner.
+		            We can see that $b$ is never going to be able to go to the corner nearby the initial token's location. Hence, $a$ has the winning strategy.
+		      \item $n$ is an even number. Analogous to the situation where the token is initially on a corner cell and $n$ is an even number.
+		            Hence, $a$ will always be able to make a move, having this way the winning strategy.
+	      \end{itemize}
+
+\end{enumerate}
+%% --------------------------------------------------
+\clearpage

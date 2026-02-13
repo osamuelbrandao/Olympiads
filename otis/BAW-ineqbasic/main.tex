@@ -50,6 +50,10 @@
 	      \[\frac{1+x_{1}^2}{1+x_{1}x_{2}}+\frac{1+x_{2}^2}{1+x_{2}x_{3}}+\cdots+\frac{1+x_{n}^2}{1+x_{n}x_{1}}\geq n.\]
 \end{itemize}
 
+\[
+	9\clubsuit+5\clubsuit+5\clubsuit+5\clubsuit+9\clubsuit+5\clubsuit+5\clubsuit+3\clubsuit+3\clubsuit+3\clubsuit+3\clubsuit=55\clubsuit
+\]
+
 \clearpage
 
 \section{\textsf{Solutions}}
@@ -123,6 +127,25 @@ For positive real numbers $a, b, c$ with $a + b + c = 3$ prove that
 \[\sum_{\text{cyc}}\sqrt{\frac{a^3+b^3}{a+b}}+9\sqrt[3]{abc}\le12.\]
 \end{problem}
 
+\textbf{\textcolor{color1}{First solution}} By AM-GM,
+\[
+	9\sqrt[3]{abc} \ge 3(\sqrt{ab}+\sqrt{bc}+\sqrt{ca}),
+\]
+and by QM-AM,
+\[
+	\cyc \left(\sqrt{\frac{a^3+b^3}{a+b}}+3\sqrt{ab}\right) \le \cyc 4\sqrt{\frac{a^2-ab+b^2+3ab}{4}} = \cyc 2(a+b) = 12.
+\]
+Hence,
+\[\sum_{\text{cyc}}\sqrt{\frac{a^3+b^3}{a+b}}+9\sqrt[3]{abc}\le12.\]
+
+\textbf{\textcolor{color1}{Second solution}} By Cauchy-Schwarz,
+\begin{align*}
+	 & \left(\cyc(\sqrt{a^2-ab+b^2} + 3\sqrt{ab})\right)^2 &  & \le \cyc(a^2-ab+b^2 + 3ab)(1+3) \implies \\
+	 & \cyc(\sqrt{a^2-ab+b^2} + 3\sqrt{ab})                &  & \le 12.
+\end{align*}
+However, $3(\sqrt{ab}+\sqrt{bc}+\sqrt{ca}) \le 9\sqrt[3]{abc}$. Hence,
+\[\sum_{\text{cyc}}\sqrt{\frac{a^3+b^3}{a+b}}+9\sqrt[3]{abc}\le12.\]
+
 \clearpage
 
 \subsubsection{IMO 2012 P2}
@@ -131,6 +154,21 @@ For positive real numbers $a, b, c$ with $a + b + c = 3$ prove that
 Let $n\ge 3$ be an integer, and let $a_2,a_3,\ldots ,a_n$ be positive real numbers such that $a_{2}a_{3}\cdots a_{n}=1$. Prove that
 \[(1 + a_2)^2 (1 + a_3)^3 \dotsm (1 + a_n)^n > n^n.\]
 \end{problem}
+
+Notice
+\[
+	a_k+1=a_k+\frac{1}{k-1}+\cdots+\frac{1}{k-1} \ge k\sqrt[k]{\frac{a_k}{(k-1)^{k-1}}} \implies (1+a_k)^k = \frac{k^k}{(k-1)^{k-1}}a_k \quad \forall k \ge 2
+\]
+by AM-GM. Hence,
+\[
+	(1 + a_2)^2 (1 + a_3)^3 \dotsm (1 + a_n)^n \ge \prod_{k=2}^{n} \frac{k^k}{(k-1)^{k-1}} \cdot a_2a_3\cdots a_n =
+	n^n.
+\]
+Equality holds if and only if $a_k=\frac{1}{k-1}$, which is impossible for $n \ge 3$.
+Thus,
+\[
+	(1 + a_2)^2 (1 + a_3)^3 \dotsm (1 + a_n)^n > n^n.
+\]
 
 \clearpage
 
@@ -151,10 +189,7 @@ By the Cauchy-Schwarz inequality,
 
 Therefore,
 \[ \frac{1}{x+1} + \frac{1}{y+1} + \frac{1}{z+1} \le 1. \]
-
-\begin{insight}
-
-\end{insight}
+end{insight}
 
 \clearpage
 
@@ -434,3 +469,30 @@ Thus,
 \clearpage
 \section{\textsf{References}}\label{sec:references}
 \end{document}
+
+\begin{problem}
+For positive real numbers $a, b, c$ with $a + b + c = 3$ prove that
+\[\sum_{\text{cyc}}\sqrt{\frac{a^3+b^3}{a+b}}+9\sqrt[3]{abc}\le12.\]
+\end{problem}
+
+\textbf{\textcolor{color1}{First solution}} By AM-GM,
+\[
+	9\sqrt[3]{abc} \ge 3(\sqrt{ab}+\sqrt{bc}+\sqrt{ca}),
+\]
+and by QM-AM,
+\[
+	\cyc \left(\sqrt{\frac{a^3+b^3}{a+b}}+3\sqrt{ab}\right) \le \cyc 4\sqrt{\frac{a^2-ab+b^2+3ab}{4}} = \cyc 2(a+b) = 12.
+\]
+Hence,
+\[\sum_{\text{cyc}}\sqrt{\frac{a^3+b^3}{a+b}}+9\sqrt[3]{abc}\le12.\]
+
+\textbf{\textcolor{color1}{Second solution}} By Cauchy-Schwarz,
+\begin{align*}
+	 & \left(\cyc(\sqrt{a^2-ab+b^2} + 3\sqrt{ab})\right)^2 &  & \le \cyc(a^2-ab+b^2 + 3ab)(1+3) \implies \\
+	 & \cyc(\sqrt{a^2-ab+b^2} + 3\sqrt{ab})                &  & \le 12.
+\end{align*}
+However, $3(\sqrt{ab}+\sqrt{bc}+\sqrt{ca}) \le 9\sqrt[3]{abc}$. Hence,
+\[\sum_{\text{cyc}}\sqrt{\frac{a^3+b^3}{a+b}}+9\sqrt[3]{abc}\le12.\]
+
+\clearpage
+
