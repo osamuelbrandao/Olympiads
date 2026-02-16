@@ -1,0 +1,68 @@
+\section{\textsf{Functional Equations}}
+\subsection{Problems}
+\subsubsection{Kyrgzstan 2012 02/13/26}
+\begin{problem}
+Find all functions $ f:\RR\to\RR $ such that
+\[
+	f(f(x)^2+f(y)) = xf(x)+y \quad \forall x,y\in \RR
+\]
+\end{problem}
+We claim that $f(x)=\pm x$ is the only possible solution. It is clear to see that $f(x)=\pm x$ indeed works.
+Now we prove it is the only two functions that actually work.
+
+\begin{claim}
+	The function $f$ is bijective.
+\end{claim}
+\begin{proof}
+	Plugging $x=0$ gives
+	\[
+		f(f(0)^2+f(0))=0,
+	\]
+	and plugging $u=f(0)^2+f(0)$ gives $f(u)=0$. Hence, we can say $x=u$ to find that
+	\[
+		f(f(y))=y. \qedhere
+	\]
+\end{proof}
+Say $f(t)=x$. Hence,
+\[
+	f(t^2+f(y))=f(t)\cdot t + y= f(f(t)^2+f(y)) \iff f(t)^2=t^2.
+\]
+However, we must still escape the pointwise trap!
+
+By the sake of contradiction, say the function $f$ isn't one of the two linear functions we found out. Hence, say
+$f(a)=+a$ and $f(b)=-b$. Thus,
+\[
+	f(a^2-b)=a^2+b.
+\]
+Contradiction! $a$ and $b$ aren't equal 0 at the same time.
+
+
+\clearpage
+
+\subsubsection{02/14/26}
+\begin{problem}
+Find all functions $f:\mathbb{R}\to\mathbb{R}$ such that
+\[
+	f(x^{2}+y)=f(x^{27}+2y)+f(x^{4})
+\]
+for all $x,y\in\mathbb{R}$.
+\end{problem}
+We claim the answer is $f(x)=0$. Clearly it works, so we demonstrate now that it is the only possible answer.
+
+Say $x^2+y=x^{27}+2y$. Hence,
+\[
+	f(2x^2-x^{27})=f(2x^2-x^{27})+f(x^4) \iff f(x^4)=0.
+\]
+Thus, $f(x)=0$ for all nonnegative numbers. To prove the same is true for negative numbers and $0$,
+we must simply say $y=0$, resulting in $f(x^{27})=0$.
+
+\clearpage
+
+\subsubsection{02/14/26}
+\begin{problem}
+Find all strictly increasing functions $f:\mathbb{Z}\to\mathbb{Z}$ such that
+\[
+	f(f(x))=x+2
+\]
+for all integers $x$.
+\end{problem}
