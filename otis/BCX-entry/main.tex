@@ -418,25 +418,24 @@ A player loses if they move the token to a cell that was already visited
 \end{problem} \printpuid{ZC1AD077}
 
 %% Type your solution to Soviet Union 1978 (\href{https://otis.evanchen.cc/arch/ZC1AD077/}{ZC1AD077}) here ...
-\begin{enumerate}[(a)]
+\begin{enumerate}[label=(\alph*)]
 	Call $a$ and $b$ the two players, where $a$ moves first.
-	\ii
-	\begin{itemize}
-		\item $n$ is an odd number. Pair every cell (except the cell where the token was initially at) with exactly one orthogonally neighbouring cell, making $2\times1$ rectangles.
-		      $a$ will always move the token to a rectangle not visited by it yet, and $b$ will always be able to move the token to the other cell of this rectangle.
-		      Therefore, $b$ will always be able to make a move, having this way the winning strategy.
-		\item $n$ is an even number. Pair every cell again as described above (without exceptions this time). However, now, the inverse is going to happen, since $b$ will always be the first to move the token to a
-		      rectangle not visited by it before. Hence, $a$ will always be able to make a move, having this way the winning strategy.
-	\end{itemize}
-	\ii
-	\begin{itemize}
-		\item $n$ is an odd number. Pair every cell as described above (except the nearby corner of the initial token location).
-		      Thus, we have a similar situation to the one where $n$ is an even number and the token is initially at the corner.
-		      We can see that $b$ is never going to be able to go to the corner nearby the initial token's location. Hence, $a$ has the winning strategy.
-		\item $n$ is an even number. Analogous to the situation where the token is initially on a corner cell and $n$ is an even number.
-		      Hence, $a$ will always be able to make a move, having this way the winning strategy.
-	\end{itemize}
-
+	\item
+	      \begin{itemize}
+		      \item $n$ is an odd number. Pair every cell (except the cell where the token was initially at) with exactly one orthogonally neighbouring cell, making $2\times1$ rectangles.
+		            $a$ will always move the token to a rectangle not visited by it yet, and $b$ will always be able to move the token to the other cell of this rectangle.
+		            Therefore, $b$ will always be able to make a move, having this way the winning strategy.
+		      \item $n$ is an even number. Pair every cell again as described above (without exceptions this time). However, now, the inverse is going to happen, since $b$ will always be the first to move the token to a
+		            rectangle not visited by it before. Hence, $a$ will always be able to make a move, having this way the winning strategy.
+	      \end{itemize}
+	\item
+	      \begin{itemize}
+		      \item $n$ is an odd number. Pair every cell as described above (except the nearby corner of the initial token location).
+		            Thus, we have a similar situation to the one where $n$ is an even number and the token is initially at the corner.
+		            We can see that $b$ is never going to be able to go to the corner nearby the initial token's location. Hence, $a$ has the winning strategy.
+		      \item $n$ is an even number. Analogous to the situation where the token is initially on a corner cell and $n$ is an even number.
+		            Hence, $a$ will always be able to make a move, having this way the winning strategy.
+	      \end{itemize}
 \end{enumerate}
 %% --------------------------------------------------
 
@@ -602,6 +601,8 @@ but the intersection of every four is empty?
 
 %% --------------------------------------------------
 
+\clearpage
+
 %%fakesubsection{Just show it's possible or impossible}
 
 \begin{problem}[\href{https://aops.com/community/p9543994}{Slovenia TST 2018}, $3\clubsuit$]
@@ -616,6 +617,8 @@ such that each box contains marbles of at most two colors.
 %% Type your solution to Slovenia TST 2018 (\href{https://otis.evanchen.cc/arch/SVNTST/}{SVNTST}) here ...
 
 %% --------------------------------------------------
+
+\clearpage
 
 \begin{problem}[\href{https://aops.com/community/p6022569}{Kazakhstan 2016, added by Tilek Askerbekov}, $3\clubsuit$]
 Let $n\geq 2$ be a positive integer.

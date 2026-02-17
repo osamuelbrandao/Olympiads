@@ -58,11 +58,63 @@ we must simply say $y=0$, resulting in $f(x^{27})=0$.
 
 \clearpage
 
-\subsubsection{02/14/26}
+\subsubsection{02/16/26}
 \begin{problem}
 Find all strictly increasing functions $f:\mathbb{Z}\to\mathbb{Z}$ such that
 \[
 	f(f(x))=x+2
 \]
 for all integers $x$.
+\end{problem}
+We claim the answer is $f(x)=x+1$, which clearly works. Now, we demonstrate it is the only answer.
+
+Since $f(f(x))=x+2$,
+\[
+	f(f(f(x)))=f(x+2).
+\]
+At the same time, by saying that $f(x)=x$, we have
+\[
+	f(f(f(x)))=f(x)+2.
+\]
+Hence,
+\[
+	f(x+2)=f(f(f(x)))=f(x)+2.
+\]
+
+Since, $f(x)<f(x+1)<f(x+2)$ and $f: \ZZ \to \ZZ$,
+\[
+	f(x+1)=f(x)+1 \quad \text{and} \quad f(x)=x+f(0).
+\]
+Since $f(x)=x+1$ works, $f(0)=1$. Hence, the only possible answer is
+\[
+	f(x)=x+1.
+\]
+
+\clearpage
+
+\subsubsection{02/16/26}
+\begin{problem}
+Find all functions $f:\mathbb{R}\to\mathbb{R}$ such that
+\[
+	x f(x) + y^{2} + f(xy) = f(x+y)^{2} - f(x)f(y).
+\]
+for all real numbers $x$ and $y$.
+\end{problem}
+
+We claim the answer is $f(x)=x$, which is clearly true. Now, we prove it is the only answer.
+
+After replacing $x$ and $y$ and subtracting the replacements, we find
+\[
+	xf(x)-x^2=yf(y)-y^2 \iff g(x)=g(y).
+\]
+Hence, $g(x)$ is a constant $c$. Say $x=0 \iff c=0$. Hence,
+\[
+	xf(x)=x^2 \iff f(x)=x
+\]
+for every $x \neq 0$. Now, taking $x=y=0$ in the original equation, we find $f(0)=0$.
+
+\clearpage
+
+\subsubsection{Cauchy's funcitonal equation over $\QQ$ 02/16/26}
+\begin{problem}
 \end{problem}
