@@ -455,3 +455,69 @@ A player loses if they move the token to a cell that was already visited
 \end{enumerate}
 %% --------------------------------------------------
 \clearpage
+
+%%fakesubsection{Just show it's possible or impossible}
+
+\begin{problem}[\href{https://aops.com/community/p9543994}{Slovenia TST 2018}, $3\clubsuit$]
+Let $n \ge 2$ be an integer.
+There are $n^2$ marbles, each of which is one of $n$ colors,
+but not necessarily $n$ of each color.
+Prove that they may be placed in $n$ boxes
+with $n$ marbles in each box,
+such that each box contains marbles of at most two colors.
+\end{problem}
+
+%% Type your solution to Slovenia TST 2018 (\href{https://otis.evanchen.cc/arch/SVNTST/}{SVNTST}) here ...
+Below we prove the statement is true for $nk$ marbles of at most $k$ colors in $k$ boxes containing $n$ marbles in each.
+
+Clearly the statement works for the base case $k=1$. By induction over $k$, suppose the statement works for every $k$. Let's now prove it
+works for $k+1$ either.
+
+Let's divide our solution in two cases:
+\begin{itemize}
+	\item There are exactly $n$ marbles of each color. Hence, just fill all the boxes with $n$ marbles
+	      of each color, resulting in all the boxes filled with $n$ marbles of a single color in each box.
+	\item Not every color is present in exactly $n$ marbles. Let $m$ be the current number of marbles painted
+	      with the less frequently used color and $M$ with the most frequently used one. Hence, we
+	      might do the following algorithm:
+	      \begin{enumerate}
+		      \item Fill the first box with $m$. Clearly $m < n$, meaning that there is yet space to be filled in the box.
+		      \item Now, take $M$ and fill the first box with $n-m$ marbles, resulting in exactly $n$ marbles in the first box of only $2$ colors.
+		      \item Notice that the first box is done, so it rests now only $(k+1)-1=k$ boxes and colors to work with.
+	      \end{enumerate}
+\end{itemize}
+Notice that the total number of marbles now is $n(k+1)-n=nk$, which satisfies the statement according to the Inductive Hypotheses.
+
+\begin{insight}
+	Inicialmente até pensei em indução, mas preciso tentar melhor provar o passo indutivo por meio da hipótese indutiva.
+\end{insight}
+%% --------------------------------------------------
+
+\clearpage
+
+\begin{problem}
+There are $n$ positive integers written in a row.
+Iteratively, Alice chooses two adjacent numbers $x$ and $y$
+such that $x>y$ and $x$ is to the left of $y$,
+and replaces the pair $(x,y)$ by either $(y+1,x)$ or $(x-1,x)$.
+Prove that she can perform at most $n^n$ such steps.
+\end{problem}
+Notice the maximum $M$ of the set is invariant. Take the sum
+\[
+	S=a_1+2a_2+\dots+na_n
+\]
+and say every step Alice replaces $(a_i,a_{i+1})$ by $(c,a_i)$. Hence,
+every iteration results in the a difference $d$:
+\[
+	d=(ic+(i+1)a_i)-(ia_i+(i+1)a_{i+1})=a_i-a_{i+1}+i(c-a_{i+1}).
+\]
+Thus, $d \ge 1$, because $a_i > a_{i+1}$ and $c-a_{i+1} \ge 0$.
+
+Since $S \le \frac{n(n+1)}{2}M$, it is impossible to make an infinite amount
+of iterations since $S$ is up bounded, but every iteration add at least $1$ to the total sum.
+
+\begin{insight}
+	Obviamente era impossível provar sem uma soma modificada porque, sem alguma modificação valida,
+	a iteração não necessariamente adicionava ou removia algo da soma total. Logo, imediatamente
+	poderia se imaginar em mudar isso.
+\end{insight}

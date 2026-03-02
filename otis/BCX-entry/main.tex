@@ -536,6 +536,8 @@ Moreover, determine all sequences $(a_1, a_2, \dots, a_p)$ that achieve this max
 
 %% --------------------------------------------------
 
+\clearpage
+
 \begin{problem}[\href{https://aops.com/community/p23517195}{USEMO 2021/1}, $5\clubsuit$]
 Let $n$ be a positive integer and
 consider an $n \times n$ grid of real numbers.
@@ -547,6 +549,8 @@ and strictly \emph{less} than the average of $c$'s row.
 %% Type your solution to USEMO 2021/1 (\href{https://otis.evanchen.cc/arch/21USEMO1/}{21USEMO1}), proposed by Holden Mui here ...
 
 %% --------------------------------------------------
+
+\clearpage
 
 \begin{problem}[MOP 2011, $5\clubsuit$]
 Seven points $A_1$, \dots, $A_7$ are marked on a circle $\gamma$.
@@ -615,7 +619,25 @@ such that each box contains marbles of at most two colors.
 \end{problem} \printpuid{SVNTST}
 
 %% Type your solution to Slovenia TST 2018 (\href{https://otis.evanchen.cc/arch/SVNTST/}{SVNTST}) here ...
+Below we prove the statement is true for $nk$ marbles of at most $k$ colors in $k$ boxes containing $n$ marbles in each.
 
+Clearly the statement works for the base case $k=1$. By induction over $k$, suppose the statement works for every $k$. Let's now prove it
+works for $k+1$ either.
+
+Let's divide our solution in two cases:
+\begin{itemize}
+	\item There are exactly $n$ marbles of each color. Hence, just fill all the boxes with $n$ marbles
+	      of each color, resulting in all the boxes filled with $n$ marbles of a single color in each box.
+	\item Not every color is present in exactly $n$ marbles. Let $m$ be the current number of marbles painted
+	      with the less frequently used color and $M$ with the most frequently used one. Hence, we
+	      might do the following algorithm:
+	      \begin{enumerate}
+		      \item Fill the first box with $m$. Clearly $m < n$, meaning that there is yet space to be filled in the box.
+		      \item Now, take $M$ and fill the first box with $n-m$ marbles, resulting in exactly $n$ marbles in the first box of only $2$ colors.
+		      \item Notice that the first box is done, so it rests now only $(k+1)-1=k$ boxes and colors to work with.
+	      \end{enumerate}
+\end{itemize}
+Notice that the total number of marbles now is $n(k+1)-n=nk$, which satisfies the statement according to the Inductive Hypotheses.
 %% --------------------------------------------------
 
 \clearpage
@@ -832,5 +854,45 @@ What's the minimum number of tiles he needs to rotate so that this is always pos
 %% Type your solution to XOOK 2025/1 (\href{https://otis.evanchen.cc/arch/25XOOK1/}{25XOOK1}), proposed by Royce Yao here ...
 
 %% --------------------------------------------------
+
+\clearpage
+
+\begin{problem}
+Let $x,y,a,b,c$ be integers.
+\begin{enumerate}
+	\item Prove that $2x+3y$ is divisible by $17$ if and only if $9x+5y$ is divisible by $17$.
+	\item If $4a+5b-3c$ is divisible by $19$, prove that $6a-2b+5c$ is also divisible by $19$.
+\end{enumerate}
+\end{problem}
+\begin{enumerate}
+	\item Say
+	      \[
+		      17 \mid 2x+3y \iff 17 \mid k(2x+3y).
+	      \]
+	      However, $k(2x+3y)-9x-5y=x(2k-9)+y(3k-5)$. Notice that $k=13$ results in $17x+34y$, which is
+	      a multiple of $17$. Thus, if $2x+3y$ is divisible by $17$, $9x+5y$ is either. An analogous
+	      solution proves the if and only if.
+	\item Analogous argument proves the statement.
+\end{enumerate}
+
+\clearpage
+
+\begin{problem}
+Define the $n$th Fermat number $F_n$ by $F_n=2^{2^n}+1$. Show that $F_m,F_n$ are coprime for any $m,n$
+\end{problem}
+\begin{claim}
+	$(2^{2^{m}}+1) \equiv 2 \pmod{(2^{2^{n}}+1)} \quad \forall m>n$.
+\end{claim}
+\begin{proof}
+	Let $a=2^{2^{n}}$. Hence, we must prove
+	\[
+		a+1 \mid 2^{2^{m}}-1.
+	\]
+	Notice $2^{2^{m}}=(2^{2^{n}})^{2^{m-n}}=a^{2^{m-n}}$. Since $m<n$, say $a^{2^{m-n}}=2t$. Therefore, it suffices to prove that
+	\[
+		a+1 \mid a^{2^{m-n}}-1 = a^{2t}-1=(a+1)(a^{2t-1}+a^{2t-2}-\dots+1) \qedhere
+	\]
+\end{proof}
+Therefore, $F_m$ and $F_n$ are clearly coprime.
 
 \end{document}
