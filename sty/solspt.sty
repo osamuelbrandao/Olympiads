@@ -1,5 +1,4 @@
 \NeedsTeXFormat{LaTeX2e}
-% Enables modern LaTeX compatibility.
 
 % Name, date and version of the package.
 \ProvidesPackage{article}[2025/09/08 v0.1 Olympiad Mathematics macros & enrironments]
@@ -11,7 +10,7 @@
 % amsfonts: Add useful fonts like \mathbb{R}.
 % amssymb: Add useful symbles like \therefore (needs amsfonts to work).
 % amsthm: Add useful environments like \begin{proof}
-\RequirePackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
+\RequirePackage{amsmath, amsfonts, amssymb, amsthm}
 
 \usepackage{fontspec}
 \usepackage{emoji}
@@ -19,18 +18,19 @@
 
 \RequirePackage{xcolor}
 
-\definecolor{wine}{HTML}{5f0f40}
-\definecolor{red}{HTML}{9a031e}
-\definecolor{amber}{HTML}{fb8b24}
-\definecolor{burnt}{HTML}{e36414}
-\definecolor{teal}{HTML}{0f4c5c}
-\definecolor{white}{HTML}{fff7e5}
-\definecolor{white2}{HTML}{f3e7d3}
-\definecolor{white3}{HTML}{e0d0bc}
-\definecolor{black}{HTML}{1e1528}
+\definecolor{color1}{HTML}{21295c}
+\definecolor{color2}{HTML}{1b3b6f}
+\definecolor{color3}{HTML}{065a82}
+\definecolor{color4}{HTML}{1c7293}
+\definecolor{color5}{HTML}{F0EEE7}
+\definecolor{color6}{HTML}{C91C33}
+\definecolor{color7}{HTML}{2e933c}
+\definecolor{color8}{HTML}{EAEDEF}
 
 % Add Latin Modern Fonts like Sans-serif and Roman.
 \RequirePackage{lmodern}
+
+\usepackage[portuges]{babel}
 
 % Makes header and footer configurable.
 \RequirePackage{fancyhdr}
@@ -48,7 +48,7 @@
 \RequirePackage{graphicx}
 
 % Enables cool hyper references.
-\RequirePackage[colorlinks=true, linkcolor=teal, urlcolor=teal, citecolor=teal]{hyperref}
+\RequirePackage[colorlinks=true, linkcolor=teal, urlcolor=teal, citecolor=burnt]{hyperref}
 
 % Enables referencing theorems after its the declaration, for example.
 \RequirePackage[nameinlink,capitalise]{cleveref}
@@ -56,29 +56,33 @@
 % Enables book covering.
 \RequirePackage{pdfpages}
 
-\usepackage[portuges]{babel}
+\RequirePackage{pgf, tikz}
+\usetikzlibrary{arrows}
 
-\usepackage{caption}
+\renewcommand*\contentsname{\textsf{Conteúdos}}
 
-\newcommand{\olymp}{}
 \newcommand{\olympiad}[1]{\renewcommand{\olympiad}{#1}}
 
-\newcommand{\cyc}{\sum_{\text{cyc}}}
-\newcommand{\sym}{\sum_{\text{sym}}}
+\newcommand{\solspref}{
+	This document contains solutions to the \olympiad \ problems, written by me during my preparation for the International
+	Mathematical Olympiad.
 
-\newcommand{\prodcyc}{\prod_{\text{cyc}}}
-\newcommand{\prodsym}{\prod_{\text{sym}}}
+	The content reflects my own understanding and problem-solving process. Some solutions may have been inspired by the work
+	of others or required external help, in which case proper attribution is given (see \cref{sec:references}).
 
-\newcommand{\preface}{
-	Este documento contém soluções para os problemas da \olympiad, escritos por mim durante minha
-	preparação para a Olimpíada Internacional de Matemática.
-
-	O conteúdo reflete meu próprio entendimento e processo de resolução de problemas. Algumas soluções
-	podem ter sido inspiradas pelo trabalho de outras pessoas ou requerido ajuda externa; nesses casos,
-	a devida atribuição é dada (veja a \cref{sec:references}).
-
-	Se você notar algum erro ou tiver sugestões de melhoria, eu ficaria muito grato em recebê-las em \
+	If you notice any errors or have suggestions for improvement, I would greatly appreciate hearing from you at
 	\href{mailto:samuelbaraujo19@gmail.com}{samuelbaraujo19@gmail.com}.
+}
+
+\newcommand{\unit}[1]{\renewcommand{\unit}{#1}}
+
+\newcommand{\otispref}{
+	This document collects my solutions to the OTIS problem sets from the \unit \ unit, written during my preparation for mathematical olympiads.
+
+	The solutions reflect my understanding and problem-solving approach at the time of writing. Some arguments were informed by discussions, official notes, or published sources; when so, attribution is provided (see \cref{sec:references}).
+
+	If you find errors or have suggestions, please contact me at \href{mailto:samuelbaraujo19@gmail.com}{samuelbaraujo19@gmail.com
+	}.
 }
 
 % Creates a new command, e.g. \RR works the same as mathbb{R}, but is easier.
@@ -88,23 +92,23 @@
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\NN}{\mathbb{N}}
 
-\pagestyle{fancy}
-\fancyhf{}
+\newcommand{\cyc}{\sum_{\text{cyc}}}
+\newcommand{\sym}{\sum_{\text{sym}}}
 
-\fancyhead[L]{\olympiad}
-\fancyhead[R]{\textcolor{color1}{Samuel Brandão}, \today}
-\fancyfoot[C]{\thepage}
-\setlength{\headheight}{14.5pt}
+\newcommand{\prodcyc}{\prod_{\text{cyc}}}
+\newcommand{\prodsym}{\prod_{\text{sym}}}
 
 \tcbset{
-	statementbox/.style={
+	theorem/.style={
 			enhanced,
-			drop shadow=white3,
+			enhanced jigsaw,
+			drop shadow,
+			arc=1.4mm,
 			breakable,
-			colback=white,
-			colframe=amber,
-			coltitle=white,
-			colbacktitle=amber,
+			colback=color8,
+			colframe=color3,
+			coltitle=color8,
+			colbacktitle=color3,
 			fonttitle=\bfseries\sffamily,
 			before skip=10pt, after skip=10pt,
 			left=8pt, right=8pt, top=8pt, bottom=8pt,
@@ -114,12 +118,33 @@
 }
 
 \tcbset{
-	claimbox/.style={
+	lemma/.style={
 			enhanced,
+			enhanced jigsaw,
+			drop shadow,
+			arc=1.4mm,
 			breakable,
-			colback=white,
-			colframe=amber,
-			coltitle=burnt,
+			colback=color8,
+			colframe=color3,
+			coltitle=color2,
+			fonttitle=\bfseries\sffamily,
+			before skip=10pt, after skip=10pt,
+			left=8pt, right=8pt, top=8pt, bottom=8pt,
+			width=\linewidth,
+			attach title to upper,
+			boxrule=0.6pt,
+			after title={\quad}
+		}
+}
+
+\tcbset{
+	example/.style={
+			enhanced,
+			arc=1.4mm,
+			breakable,
+			colback=color8,
+			colframe=color8,
+			coltitle=color2,
 			fonttitle=\bfseries\sffamily,
 			before skip=10pt, after skip=10pt,
 			left=8pt, right=8pt, top=8pt, bottom=8pt,
@@ -131,12 +156,30 @@
 }
 
 \tcbset{
-	observationbox/.style={
+	problem/.style={
+			enhanced,
+			enhanced jigsaw,
+			drop shadow,
+			breakable,
+			colback=color8,
+			colframe=color2,
+			coltitle=color8,
+			colbacktitle=color1,
+			fonttitle=\bfseries\sffamily,
+			before skip=10pt, after skip=10pt,
+			left=8pt, right=8pt, top=8pt, bottom=8pt,
+			width=\linewidth,
+			boxrule=0.6pt
+		}
+}
+
+\tcbset{
+	claim/.style={
 			enhanced,
 			breakable,
-			colback=white,
-			colframe=white,
-			coltitle=burnt,
+			colback=color8,
+			colframe=color2,
+			coltitle=color1,
 			fonttitle=\bfseries\sffamily,
 			before skip=10pt, after skip=10pt,
 			left=8pt, right=8pt, top=8pt, bottom=8pt,
@@ -147,9 +190,39 @@
 		}
 }
 
-\newtcolorbox{problem}{statementbox, title=Enunciado do Problema}
-\newtcolorbox{claim}{claimbox, title=Afirmação}
-\newtcolorbox{observation}{observationbox, title=Observação}
+\tcbset{
+	observation/.style={
+			enhanced,
+			breakable,
+			colback=color8,
+			colframe=color:,
+			coltitle=color1,
+			fonttitle=\bfseries\sffamily,
+			before skip=10pt, after skip=10pt,
+			left=8pt, right=8pt, top=8pt, bottom=8pt,
+			width=\linewidth,
+			attach title to upper,
+			boxrule=0.6pt,
+			after title={ --- }
+		}
+}
 
-\crefname{section}{seção}{seções}
-\Crefname{section}{Seção}{Seções}
+\newtcbtheorem[auto counter, number within=section]{theorem}{Theorem}{theorem}{theorem}
+\newtcbtheorem[use counter from=theorem]{definition}{Definition}{theorem}{definition}
+\newtcbtheorem[use counter from=theorem]{lemma}{Lemma}{theorem}{lemma}
+\newtcbtheorem[use counter from=theorem]{corollary}{Corollary}{theorembox}{corollary}
+\newtcbtheorem[use counter from=theorem]{example}{Example}{example}{example}
+
+\newtcolorbox{problem}{problem, title=Problem Statement}
+\newtcolorbox{claim}{claim, title=Claim}
+\newtcolorbox{observation}{example, title=Observation}
+\newtcolorbox{insight}{example, title={\footnotesize \emoji{bulb}}  Insight}
+
+\crefname{section}{section}{sections}
+\Crefname{section}{Section}{Sections}
+
+\crefname{tcb@cnt@theorem}{Theorem}{Theorems}
+\crefname{tcb@cnt@definition}{Definition}{Definitions}
+\crefname{tcb@cnt@lemma}{Lemma}{Lemmas}
+\crefname{tcb@cnt@corollary}{Corollary}{Corollaries}
+\crefname{example}{Example}{Examples}

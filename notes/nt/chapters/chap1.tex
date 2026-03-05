@@ -40,3 +40,42 @@ Define the $n$th Fermat number $F_n$ by $F_n=2^{2^n}+1$. Show that $F_m,F_n$ are
 \end{proof}
 Therefore, $F_m$ and $F_n$ are clearly coprime.
 
+\clearpage
+
+\subsubsection{1.12.6 03/04/26}
+\begin{problem}
+Let $a,b$ be positive integers such that there exists a prime $p$ with the property
+\[
+	\operatorname{lcm}(a,a+p)=\operatorname{lcm}(b,b+p).
+\]
+Prove that $a=b$.
+\end{problem}
+\[
+	\operatorname{lcm}(a,a+p)=\frac{a(a+p)}{\operatorname{gcd}(a,a+p)}=\frac{a(a+p)}{\operatorname{gcd}(a,p)}.
+\]
+Analogous argument for $\frac{b(b+p)}{\operatorname{gcd}(b,p)}$.
+\begin{claim}
+	\[
+		\frac{a(a+p)}{\operatorname{gcd}(a,p)} = \frac{b(b+p)}{\operatorname{gcd}(b,p)} \iff a(a+p)=b(b+p).
+	\]
+\end{claim}
+\begin{proof}
+	AFTSOC $p$ divides only one of $a,b$. WLOG say $a>b$. Hence, $p \nmid b,b+p \iff p \nmid b(b+p)$. Thus,
+	$p^2 \mid a(a+p)$, but $p^2 \nmid bp(b+p)$. Contradiction! $a(a+p)\neq bp(a+p)$ since those are not divisible
+	by the same number. \qedhere
+\end{proof}
+
+\clearpage
+
+\subsubsection{1.12.7 03/05/26}
+\begin{problem}
+Find all positive integers $n$ such that
+\[
+	3^{n-1}+5^{n-1}\mid 3^n+5^n.
+\]
+\end{problem}
+\[
+	3^n+5^n=3(3^{n-1}+5^{n-1})+ 2\cdot 5^{n-1}.
+\]
+However, $\operatorname{gcd}(3^{n-1},5^{n-1})=1$ for every positive integer $n$. Hence, the only possible
+answer is $n=1$.
